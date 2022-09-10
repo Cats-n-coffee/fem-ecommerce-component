@@ -6,6 +6,13 @@
 
 :root {
     --orange: hsl(26, 100%, 55%);
+    --pale-orange:  hsl(25, 100%, 94%);
+    --very-dark-blue: hsl(220, 13%, 13%);
+    --dark-grayish-blue: hsl(219, 9%, 45%);
+    --grayish-blue: hsl(220, 14%, 75%);
+    --light-grayish-blue: hsl(223, 64%, 98%);
+    --white: hsl(0, 0%, 100%);
+    --background-blur: rgba(0, 0, 0, .75);
 }
 
 html, body {
@@ -13,4 +20,38 @@ html, body {
     width: 100vw;
     height: 100vh;
     font-size: 16px;
+}
+
+#container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slideshow-wrapper {
+    width: 100%;
+    height: 100%;
+    background-color: var(--background-blur);
+    display: none;
+}
+
+.content-wrapper {
+    width: 100%;
+    height: 100%;
+    max-width: 1110px;
+    padding: 0 10px;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 90px 40px;
+}
+
+hr {
+    color: var(--light-grayish-blue);
+    height: 1px;
 }

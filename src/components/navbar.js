@@ -1,14 +1,22 @@
 export const navBarTemplate = document.createElement("template");
 navBarTemplate.innerHTML = `
     <style>
+        *, *::before, *::after {
+            padding 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
         .navbar {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            padding: 28px 0;
         }
 
         .left-nav {
             display: flex;
+            align-items: center;
         }
 
         .links-list {
@@ -17,11 +25,25 @@ navBarTemplate.innerHTML = `
         }
 
         .links-list li {
-            padding-right: 15px;
+            padding-right: 32px;
         }
 
         .links-list li a {
             text-decoration: none;
+            font-size: 15px;
+            font-weight: 400;
+            color: var(--dark-grayish-blue);
+        }
+
+        .right-nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .right-nav img {
+            width: 50px;
+            height: 50px;
+            margin-left: 40px;
         }
     </style>
     <nav class="navbar">
