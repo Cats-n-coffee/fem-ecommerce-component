@@ -55,5 +55,28 @@ export class ProductDescription extends HTMLElement {
     this.shadowRoot.appendChild(
       productDescriptionTemplate.content.cloneNode(true)
     );
+    this.container = document.querySelector("#container");
+    this.quantityDisplay = this.shadowRoot.querySelector("#quantity-display");
+    this.newQuantity = parseInt(this.container.dataset.quantity) || 0;
+  }
+
+  connectedCallback() {
+    const plusButton = this.shadowRoot.querySelector("#plus");
+    const minusButton = this.shadowRoot.querySelector("#minus");
+    const addToCartButton = this.shadowRoot.querySelector(".cart-btn");
+
+    plusButton.addEventListener("click", () => {
+      this.newQuantity = this.newQuantity <= 10 ? (this.newQuantity += 1) : 10;
+      this.quantityDisplay.innerText =
+        this.newQuantity <= 10 ? this.newQuantity : 10;
+    });
+    minusButton.addEventListener("click", () => {
+      this.newQuantity = this.newQuantity > 0 ? (this.newQuantity -= 1) : 0;
+      this.quantityDisplay.innerText =
+        this.newQuantity >= 0 ? this.newQuantity : 0;
+    });
+    addToCartButton.addEventListener("click", () => {
+      this.container.dataset.quantity = this.newQuantity;
+    });
   }
 }

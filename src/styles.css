@@ -22,12 +22,17 @@ html, body {
     font-size: 16px;
 }
 
+body {
+    overflow: scroll;
+}
+
 #container {
     height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .slideshow-wrapper {
@@ -35,6 +40,30 @@ html, body {
     height: 100%;
     background-color: var(--background-blur);
     display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+#close-slideshow {
+    background: none;
+    border: none;
+    cursor: pointer;
+    align-self: flex-end;
+    margin-right: calc((100% - 445px) / 2);
+    padding-bottom: 16px;
+}
+
+#close-slideshow svg path {
+    fill: var(--white);
+}
+
+#close-slideshow:hover svg path {
+    fill: var(--orange);
 }
 
 .content-wrapper {
